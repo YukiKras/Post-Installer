@@ -279,7 +279,7 @@ execute_button = ttk.Button(window, text="Выполнить", command=execute_c
 execute_button.pack(anchor="n", side=tk.LEFT, padx=5)
 
 def help_website():
-    webbrowser.open('https://example.com')
+    webbrowser.open('https://github.com/NagibatorIgor/Post-Installer/')
 
 help_button = ttk.Button(window, text="Почитать про пункты", command=help_website)
 help_button.pack(anchor="n", side=tk.LEFT)
