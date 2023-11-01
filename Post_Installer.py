@@ -12,8 +12,7 @@ import urllib.request
 import zipfile
 import platform
 import multiprocessing
-import tempfile
-import winreg
+import re
 
 os_version = platform.system()
 
@@ -67,6 +66,13 @@ def install_certificate(url, certificate_name):
 
 processes = []
  
+def is_valid_username(username):
+    # Проверить, соответствует ли имя пользователя условиям
+    if re.match(r'^[a-zA-Z0-9_\-]+$', username):
+        return True
+    else:
+        return False
+
 def select_all():
     for checkbox in checkboxes:
         # Получаем путь к директории TEMP
@@ -95,12 +101,23 @@ def resource_path(relative_path):
 
     return os.path.join(base_path, relative_path)
 
+if __name__ == "__main__":
+    # Получить имя текущего пользователя Windows
+    username = os.environ.get('USERNAME')
+
+    # Проверить правильность имени пользователя
+    if is_valid_username(username):
+        print("Имя пользователя верно!")
+    else:
+        MessageBox = ctypes.windll.user32.MessageBoxW
+        MessageBox(None, 'Создай пользователя с нормальным именем, с английскими буквами и без пробелов', 'Не будь националистом', 0)
+
 def execute_code():
     for i, checkbox in enumerate(checkboxes_intvars):
         if checkbox.get() == 1:
             if i == 0:
                 subprocess.run(["netsh", "advfirewall", "set", "allprofiles", "state", "off"])
-                key_path = r"HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Defender Security Center\Notifications"
+                key_path = r"HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows Defender Security Center\\Notifications"
                 # Команда для добавления значения DisableNotifications
                 command_disable_notifications = f'reg add "{key_path}" /v "DisableNotifications" /t REG_DWORD /d 1 /f'
                 # Команда для добавления значения DisableEnhancedNotifications
