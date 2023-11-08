@@ -230,7 +230,7 @@ window = tk.Tk()
 style = ttk.Style()
 style.theme_use('vista')
 window.title("Post Installer")
-window.resizable(False, False)
+#window.resizable(False, False)
 # Путь к файлу с иконкой
 icon_path = resource_path("icon.ico")
 # Установка иконки на окно
