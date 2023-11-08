@@ -6,7 +6,7 @@ Post Installer - небольшая утилита по автоматизаци
 
 Прямая ссылка: https://cloud.kiselev.ru.net/s/postinstaller/download/Post_Installer.exe
 
-Или из Github: https://github.com/NagibatorIgor/Post-Installer/releases/tag/relase
+Или из Github: https://github.com/NagibatorIgor/Post-Installer/releases
 ## FAQ
 ### Я хочу добавить то, то, или у меня какие-то проблемы. Как написать свои желания, идеи, проблемы?
 Можете написать это через ресурсы комьюнити ConsoleCP, [все ссылки на ресурсы тут](https://github.com/NagibatorIgor/ccp/blob/main/%D0%9F%D0%A0%D0%9E%D0%A7%D0%98%D0%A2%D0%90%D0%99.md#%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8).
