@@ -243,10 +243,10 @@ y = (window.winfo_screenheight() - window_height) // 2
 # Установка позиции окна
 window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-select_all_var = tk.IntVar()
-select_all_checkbox = ttk.Checkbutton(window, text="Выбрать всё", variable=select_all_var)
-select_all_checkbox['command'] = lambda: select_all() if select_all_var.get() == 1 else unselect_all()
-select_all_checkbox.pack(anchor="w")
+#select_all_var = tk.IntVar()
+#select_all_checkbox = ttk.Checkbutton(window, text="Выбрать всё", variable=select_all_var)
+#select_all_checkbox['command'] = lambda: select_all() if select_all_var.get() == 1 else unselect_all()
+#select_all_checkbox.pack(anchor="w")
 
 checkbox_texts = [
     "Выключить фаервол и его уведомления",                          #0
