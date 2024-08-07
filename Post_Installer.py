@@ -225,6 +225,14 @@ def execute_code():
                 issuing_certificate_url = 'https://gu-st.ru/content/Other/doc/russian_trusted_sub_ca.cer'
                 issuing_certificate_name = 'Russian_Trusted_Sub_CA.cer'
                 install_certificate(issuing_certificate_url, issuing_certificate_name)      
+            elif i == 15:
+                url = "https://github.com/ValdikSS/GoodbyeDPI/releases/download/0.2.2/goodbyedpi-0.2.2.zip"
+                file_path = os.path.join(os.getenv("TEMP"), "goodbyedpi-0.2.2.zip")
+                extract_path = os.path.join(os.getenv("TEMP"), "extracted1")
+                urllib.request.urlretrieve(url, file_path)
+                with zipfile.ZipFile(file_path, "r") as zip_ref:
+                  zip_ref.extractall(extract_path)
+                subprocess.call(os.path.join(extract_path, "goodbyedpi-0.2.2", "1_russia_blacklist.cmd"))
                  
 window = tk.Tk()
 style = ttk.Style()
@@ -243,6 +251,7 @@ y = (window.winfo_screenheight() - window_height) // 2
 # Установка позиции окна
 window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
+#Выбрать всё работает криво, потом фокшу
 #select_all_var = tk.IntVar()
 #select_all_checkbox = ttk.Checkbutton(window, text="Выбрать всё", variable=select_all_var)
 #select_all_checkbox['command'] = lambda: select_all() if select_all_var.get() == 1 else unselect_all()
@@ -264,6 +273,7 @@ checkbox_texts = [
     "** Добавить компьютер на рабочий стол",                        #12
     "Включить классический просмотровщик фотографий",               #13
     "Установить сертификаты минцифры России",                       #14
+    "Установить goodbyedpi от замедления YouTube",                  #15
 ]
 
 checkboxes_intvars = []
@@ -296,7 +306,7 @@ execute_button = ttk.Button(window, text="Выполнить", command=execute_c
 execute_button.pack(anchor="n", side=tk.LEFT, padx=5)
 
 def help_website():
-    webbrowser.open('https://github.com/NagibatorIgor/Post-Installer/')
+    webbrowser.open('https://github.com/YukiKras/Post-Installer/')
 
 help_button = ttk.Button(window, text="Почитать про пункты", command=help_website)
 help_button.pack(anchor="n", side=tk.LEFT)

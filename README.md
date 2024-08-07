@@ -117,3 +117,6 @@ reg add HKCU\Software\Classes\{extension} /ve /t REG_SZ /d PhotoViewer.FileAssoc
 ```
 ### Установить сертификаты минцифры России
 Скачивает сертификаты минцифры в %temp% из официального сайта госуслуг, и добавляет их в доверенные корневые сертификаты
+
+### Установить goodbyedpi от замедления YouTube
+Скачивает [goodbyedpi](https://github.com/ValdikSS/GoodbyeDPI) и устанавливает его согласно этой [инструкции](https://github.com/ValdikSS/GoodbyeDPI/issues/378)
